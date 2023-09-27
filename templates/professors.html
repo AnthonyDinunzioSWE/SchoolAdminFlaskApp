@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professors | School Admin Dashboard</title>
+    <!-- Include your CSS files here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/professors.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar (you can reuse the existing navbar) -->
+    {% include 'nav.html' %}
+    <!-- Content Area -->
+    <div class="container">
+        <h1>Professors</h1>
+        <div class="professor-cards">
+            <!-- Loop through the professors from your database and create a card for each -->
+            {% for professor in professors %}
+                <div class="professor-card">
+                    <h2>{{ professor.last_name }}, {{ professor.first_name }}</h2>
+                    <p><strong>Date of Birth:</strong> {{ professor.date_of_birth }}</p>
+                    <p><strong>Address:</strong> {{ professor.address }}</p>
+                    <p><strong>Phone Number:</strong> {{ professor.phone }}</p>
+                    <p><strong>Salary:</strong> ${{ professor.salary }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Footer (you can reuse the existing footer) -->
+</body>
+</html>

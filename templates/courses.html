@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | School Admin Dashboard</title>
+    <!-- Include your CSS files here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/courses.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar (you can reuse the existing navbar) -->
+    {% include 'nav.html' %}
+    <!-- Content Area -->
+    <div class="container">
+        <h1>Courses</h1>
+        <div class="course-cards">
+            <!-- Loop through the courses from your database and create a card for each -->
+            {% for course in courses %}
+                <div class="course-card">
+                    <h2>{{ course.name }}</h2>
+                    <p><strong>Course Code:</strong> {{ course.code }}</p>
+                    <p><strong>Minimum Students:</strong> {{ course.min_students }}</p>
+                    <p><strong>Maximum Students:</strong> {{ course.max_students }}</p>
+                    <p><strong>Status:</strong> {{ course.active }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Footer (you can reuse the existing footer) -->
+</body>
+</html>

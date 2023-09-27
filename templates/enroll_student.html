@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Student | School Admin Dashboard</title>
+    <!-- Include your CSS files here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enroll_student.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar (you can reuse the existing navbar) -->
+    {% include 'nav.html' %}
+    <!-- Content Area -->
+    <div class="container">
+        <h1>Enroll Student</h1>
+        <form method="POST">
+            <!-- Select Course -->
+            <div class="form-group">
+                <label for="course">Select Course</label>
+                <select id="course" name="course" required>
+                    {% for course in courses %}
+                        <option value="{{ course.id }}">{{ course.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- Select Student -->
+            <div class="form-group">
+                <label for="student">Select Student</label>
+                <select id="student" name="student" required>
+                    {% for student in students %}
+                        <option value="{{ student.id }}">{{ student.first_name }} {{ student.last_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Enroll Student</button>
+        </form>
+    </div>
+    <!-- Footer (you can reuse the existing footer) -->
+</body>
+</html>

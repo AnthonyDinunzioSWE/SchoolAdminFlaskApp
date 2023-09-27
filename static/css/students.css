@@ -1,0 +1,80 @@
+/* Reset some default styles for better consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f8fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Student Card Styles */
+.student-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.student-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(32% - 20px); /* Adjust the card width as needed */
+    box-sizing: border-box;
+}
+
+.student-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.student-card p {
+    margin-bottom: 10px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-button, .edit-button {
+    background-color: #ff4747;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.delete-button:hover, .edit-button:hover {
+    background-color: #d43f3f;
+}
+
+/* Footer Styles (you can reuse the existing footer styles) */

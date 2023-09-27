@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students | School Admin Dashboard</title>
+    <!-- Include your CSS files here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/students.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar (you can reuse the existing navbar) -->
+    {% include 'nav.html' %}
+    <!-- Content Area -->
+    <div class="container">
+        <h1>Students</h1>
+        <div class="student-cards">
+            <!-- Loop through the students from your database and create a card for each -->
+            {% for student in students %}
+                <div class="student-card">
+                    <h2>{{ student.last_name }}, {{ student.first_name }}</h2>
+                    <p><strong>Date of Birth:</strong> {{ student.date_of_birth }}</p>
+                    <p><strong>Address:</strong> {{ student.address }}</p>
+                    <p><strong>Phone Number:</strong> {{ student.phone_number }}</p>
+                    <p><strong>Courses Enrolled:</strong> {{ student.enrollments|length }}</p>
+                    <div class="card-buttons">
+                        <form action="/delete_student/{{ student.id }}" method="post">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                        <a href="/edit_student/{{ student.id }}" class="edit-button">Edit</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Footer (you can reuse the existing footer) -->
+</body>
+</html>

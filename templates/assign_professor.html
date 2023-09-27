@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Professor | School Admin Dashboard</title>
+    <!-- Include your CSS files here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/assign_professor.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar (you can reuse the existing navbar) -->
+    {% include 'nav.html' %}
+    <!-- Content Area -->
+    <div class="container">
+        <h1>Assign Professor</h1>
+        <form method="POST">
+            <!-- Select Course -->
+            <div class="form-group">
+                <label for="course">Select Course</label>
+                <select id="course" name="course" required>
+                    {% for course in courses %}
+                        <option value="{{ course.id }}">{{ course.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- Select Professor -->
+            <div class="form-group">
+                <label for="professor">Select Professor</label>
+                <select id="professor" name="professor" required>
+                    {% for professor in professors %}
+                        <option value="{{ professor.id }}">{{ professor.first_name }} {{ professor.last_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Assign Professor</button>
+        </form>
+    </div>
+    <!-- Footer (you can reuse the existing footer) -->
+</body>
+</html>

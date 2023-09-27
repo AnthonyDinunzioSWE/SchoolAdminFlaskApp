@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Course | School Admin Dashboard</title>
+    <!-- Include your CSS files here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register_course.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar (you can reuse the existing navbar) -->
+    {% include 'nav.html' %}
+    <!-- Content Area -->
+    <div class="container">
+        <h1>Register Course</h1>
+        <form method="POST">
+            <!-- Course Name -->
+            <div class="form-group">
+                <label for="name">Course Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <!-- Minimum Students -->
+            <div class="form-group">
+                <label for="min_students">Minimum Students</label>
+                <input type="number" id="min_students" name="min_students" required>
+            </div>
+            <!-- Maximum Students -->
+            <div class="form-group">
+                <label for="max_students">Maximum Students</label>
+                <input type="number" id="max_students" name="max_students" required>
+            </div>
+            <!-- Active Status -->
+            <div class="form-group">
+                <label for="active">Active Status</label>
+                <select id="active" name="active" required>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Register Course</button>
+        </form>
+    </div>
+    <!-- Footer (you can reuse the existing footer) -->
+</body>
+</html>
